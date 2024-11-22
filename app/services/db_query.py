@@ -92,3 +92,60 @@ def load_schema(connection) -> str:
     except pymysql.Error as e:
         logger.error(f"加载 schema 信息失败: {str(e)}")
         return ""
+
+
+def load_schema_with_data_preview(connection) -> str:
+    """
+    加载数据库的 schema 信息，并附加每个表的前 3 条数据预览。
+    :param connection: 数据库连接对象
+    :return: 包含 schema 和数据预览的字符串表示
+    """
+    try:
+        schema_with_preview = []
+        with connection.cursor() as cursor:
+            logger.info("开始加载数据库 schema 信息...")
+
+            # 获取所有表名
+            cursor.execute("SHOW TABLES;")
+            tables = cursor.fetchall()
+            logger.info(f"发现 {len(tables)} 个表。")
+
+            for table in tables:
+                table_name = list(table.values())[0]  # 获取表名
+                logger.info(f"加载表结构: {table_name}")
+                schema_with_preview.append(f"Table: {table_name}")
+
+                # 获取表结构
+                try:
+                    cursor.execute(f"DESCRIBE {table_name};")
+                    columns = cursor.fetchall()
+                    for column in columns:
+                        schema_with_preview.append(f"  - {column['Field']} ({column['Type']})")
+                    logger.info(f"成功加载表 {table_name} 的结构。")
+                except pymysql.Error as e:
+                    logger.error(f"加载表 {table_name} 的结构失败: {str(e)}")
+                    schema_with_preview.append(f"  Error loading table structure: {str(e)}")
+                    continue
+
+                # 获取前 3 条数据
+                try:
+                    cursor.execute(f"SELECT * FROM {table_name} LIMIT 3;")
+                    rows = cursor.fetchall()
+                    if rows:
+                        schema_with_preview.append("  Sample Data:")
+                        for row in rows:
+                            schema_with_preview.append(f"    - {row}")
+                        logger.info(f"加载表 {table_name} 的前 3 条数据成功。")
+                    else:
+                        schema_with_preview.append("  No data available in this table.")
+                        logger.info(f"表 {table_name} 中没有数据。")
+                except pymysql.Error as e:
+                    logger.error(f"加载表 {table_name} 的数据失败: {str(e)}")
+                    schema_with_preview.append(f"  Error loading data: {str(e)}")
+                    continue
+
+        logger.info("成功加载所有表的 schema 信息和数据预览。")
+        return "\n".join(schema_with_preview)
+    except pymysql.Error as e:
+        logger.error(f"加载 schema 信息失败: {str(e)}")
+        return ""

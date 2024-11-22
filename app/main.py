@@ -1,6 +1,6 @@
 import os
 import json
-from services.db_query import connect_to_database, load_schema, execute_query
+from services.db_query import connect_to_database, load_schema_with_data_preview, execute_query
 from services.sql_generator import generate_sql
 from logger import logger  # 导入共享的 logger
 
@@ -33,8 +33,8 @@ def main():
         logger.error("无法连接到数据库，请检查配置文件中的 mysql_url 设置。")
         return
 
-    # 加载 schema 信息
-    schema_info = load_schema(connection)
+    # 加载 schema 信息（包括数据预览）
+    schema_info = load_schema_with_data_preview(connection)
     if not schema_info:
         logger.error("无法加载 schema 信息，请检查数据库连接或表结构。")
         return

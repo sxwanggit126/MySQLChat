@@ -40,3 +40,420 @@ Table: rpt_province_cnt_dt
 2024-11-22 10:11:54,650 - MySQLChat - DEBUG - 查询结果: [{'device_type': 'mobile', 'count': '17'}, {'device_type': 'pc', 'count': '37'}]
 2024-11-22 10:11:54,650 - MySQLChat - DEBUG - 查询结果: [{'device_type': 'mobile', 'count': '17'}, {'device_type': 'pc', 'count': '37'}]
 2024-11-22 10:13:47,668 - MySQLChat - INFO - 感谢使用 MySQL Chat，再见！
+2024-11-22 11:17:07,353 - MySQLChat - INFO - 欢迎使用 MySQL Chat！
+2024-11-22 11:17:07,354 - MySQLChat - INFO - 加载配置文件: C:\Users\Administrator\Desktop\算法\MySQLChat\app\../config.json
+2024-11-22 11:17:07,370 - MySQLChat - INFO - 数据库连接成功！
+2024-11-22 11:17:07,375 - MySQLChat - INFO - 成功加载 schema 信息：['Table: dim_area', '  - city (varchar(255))', '  - province (varchar(255))', '  - area (varchar(255))', 'Table: dim_date', '  - date_id (varchar(255))', '  - week_id (varchar(255))', '  - week_day (varchar(255))', '  - day (varchar(255))', '  - month (varchar(255))', '  - quarter (varchar(255))', '  - year (varchar(255))', '  - is_workday (varchar(255))', '  - holiday_id (varchar(255))', 'Table: rpt_device_type_domain_cnt_dt', '  - device_type (varchar(50))', '  - domain (varchar(50))', '  - cnt (mediumtext)', '  - dt (varchar(20))', 'Table: rpt_hh_domain_cnt_dt', '  - hh (varchar(50))', '  - domain (varchar(50))', '  - cnt (mediumtext)', '  - dt (varchar(20))', 'Table: rpt_province_cnt_dt', '  - province (varchar(50))', '  - cnt (mediumtext)', '  - dt (varchar(20))']
+2024-11-22 11:17:07,375 - MySQLChat - INFO - 数据库连接成功！已加载 schema 信息。
+2024-11-22 11:17:07,375 - MySQLChat - DEBUG - Schema 信息: Table: dim_area
+  - city (varchar(255))
+  - province (varchar(255))
+  - area (varchar(255))
+Table: dim_date
+  - date_id (varchar(255))
+  - week_id (varchar(255))
+  - week_day (varchar(255))
+  - day (varchar(255))
+  - month (varchar(255))
+  - quarter (varchar(255))
+  - year (varchar(255))
+  - is_workday (varchar(255))
+  - holiday_id (varchar(255))
+Table: rpt_device_type_domain_cnt_dt
+  - device_type (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+Table: rpt_hh_domain_cnt_dt
+  - hh (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+Table: rpt_province_cnt_dt
+  - province (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+2024-11-22 11:18:34,724 - MySQLChat - INFO - 用户输入的查询描述: 域名为www.huya.com，的各个设备的个数，以及对应的节日是哪个节日
+2024-11-22 11:18:34,724 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 域名为www.huya.com，的各个设备的个数，以及对应的节日是哪个节日
+2024-11-22 11:18:34,724 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 11:18:37,458 - MySQLChat - INFO - 生成的 SQL 查询: SELECT r.device_type, r.cnt AS device_count, d.holiday_id 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 11:18:37,458 - MySQLChat - INFO - 生成的 SQL 查询: SELECT r.device_type, r.cnt AS device_count, d.holiday_id 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 11:18:37,458 - MySQLChat - INFO - 执行 SQL 查询: SELECT r.device_type, r.cnt AS device_count, d.holiday_id 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 11:18:37,459 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 11:18:37,459 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 11:19:58,325 - MySQLChat - INFO - 用户输入的查询描述: 域名为www.huya.com，的各个设备的个数，以及对应的节日是哪个节日，需要对date_id 做处理
+2024-11-22 11:19:58,325 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 域名为www.huya.com，的各个设备的个数，以及对应的节日是哪个节日，需要对date_id 做处理
+2024-11-22 11:19:58,326 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 11:20:02,957 - MySQLChat - INFO - 生成的 SQL 查询: SELECT r.device_type, r.cnt AS device_count, d.holiday_id 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 11:20:02,957 - MySQLChat - INFO - 生成的 SQL 查询: SELECT r.device_type, r.cnt AS device_count, d.holiday_id 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 11:20:02,957 - MySQLChat - INFO - 执行 SQL 查询: SELECT r.device_type, r.cnt AS device_count, d.holiday_id 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 11:20:02,958 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 11:20:02,959 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 11:28:28,336 - MySQLChat - INFO - 欢迎使用 MySQL Chat！
+2024-11-22 11:28:28,336 - MySQLChat - INFO - 加载配置文件: C:\Users\Administrator\Desktop\算法\MySQLChat\app\../config.json
+2024-11-22 11:28:28,343 - MySQLChat - INFO - 数据库连接成功！
+2024-11-22 11:28:28,351 - MySQLChat - INFO - 数据库连接成功！已加载 schema 信息。
+2024-11-22 11:28:28,351 - MySQLChat - DEBUG - Schema 信息: Table: dim_area
+  - city (varchar(255))
+  - province (varchar(255))
+  - area (varchar(255))
+  Sample Data:
+    - {'city': '东城区', 'province': '北京', 'area': '华北地区'}
+    - {'city': '西城区', 'province': '北京', 'area': '华北地区'}
+    - {'city': '朝阳区', 'province': '北京', 'area': '华北地区'}
+Table: dim_date
+  - date_id (varchar(255))
+  - week_id (varchar(255))
+  - week_day (varchar(255))
+  - day (varchar(255))
+  - month (varchar(255))
+  - quarter (varchar(255))
+  - year (varchar(255))
+  - is_workday (varchar(255))
+  - holiday_id (varchar(255))
+  Sample Data:
+    - {'date_id': '2023-01-01', 'week_id': '1', 'week_day': '7', 'day': '1', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '0', 'holiday_id': '元旦'}
+    - {'date_id': '2023-01-02', 'week_id': '1', 'week_day': '1', 'day': '2', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '0', 'holiday_id': '元旦'}
+    - {'date_id': '2023-01-03', 'week_id': '1', 'week_day': '2', 'day': '3', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '1', 'holiday_id': ''}
+Table: rpt_device_type_domain_cnt_dt
+  - device_type (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'device_type': 'mobile', 'domain': 'www.hupu.com', 'cnt': '15', 'dt': '20230101'}
+    - {'device_type': 'mobile', 'domain': 'www.baihe.com', 'cnt': '18', 'dt': '20230101'}
+    - {'device_type': 'mobile', 'domain': 'www.lottery.gov.cn', 'cnt': '12', 'dt': '20230101'}
+Table: rpt_hh_domain_cnt_dt
+  - hh (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'hh': '05', 'domain': 'www.huya.com', 'cnt': '3', 'dt': '20230101'}
+    - {'hh': '14', 'domain': 'zhaopin.baidu.com', 'cnt': '4', 'dt': '20230101'}
+    - {'hh': '07', 'domain': 'cwiki.apache.org', 'cnt': '6', 'dt': '20230101'}
+Table: rpt_province_cnt_dt
+  - province (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'province': '福建省', 'cnt': '62', 'dt': '20230101'}
+    - {'province': '北京市', 'cnt': '183', 'dt': '20230101'}
+    - {'province': '安徽省', 'cnt': '991', 'dt': '20230101'}
+2024-11-22 11:30:58,224 - MySQLChat - INFO - 欢迎使用 MySQL Chat！
+2024-11-22 11:30:58,224 - MySQLChat - INFO - 加载配置文件: C:\Users\Administrator\Desktop\算法\MySQLChat\app\../config.json
+2024-11-22 11:30:58,230 - MySQLChat - INFO - 数据库连接成功！
+2024-11-22 11:30:58,230 - MySQLChat - INFO - 开始加载数据库 schema 信息...
+2024-11-22 11:30:58,231 - MySQLChat - INFO - 发现 5 个表。
+2024-11-22 11:30:58,231 - MySQLChat - INFO - 加载表结构: dim_area
+2024-11-22 11:30:58,232 - MySQLChat - INFO - 成功加载表 dim_area 的结构。
+2024-11-22 11:30:58,233 - MySQLChat - INFO - 加载表 dim_area 的前 3 条数据成功。
+2024-11-22 11:30:58,233 - MySQLChat - INFO - 加载表结构: dim_date
+2024-11-22 11:30:58,234 - MySQLChat - INFO - 成功加载表 dim_date 的结构。
+2024-11-22 11:30:58,235 - MySQLChat - INFO - 加载表 dim_date 的前 3 条数据成功。
+2024-11-22 11:30:58,235 - MySQLChat - INFO - 加载表结构: rpt_device_type_domain_cnt_dt
+2024-11-22 11:30:58,236 - MySQLChat - INFO - 成功加载表 rpt_device_type_domain_cnt_dt 的结构。
+2024-11-22 11:30:58,237 - MySQLChat - INFO - 加载表 rpt_device_type_domain_cnt_dt 的前 3 条数据成功。
+2024-11-22 11:30:58,237 - MySQLChat - INFO - 加载表结构: rpt_hh_domain_cnt_dt
+2024-11-22 11:30:58,238 - MySQLChat - INFO - 成功加载表 rpt_hh_domain_cnt_dt 的结构。
+2024-11-22 11:30:58,239 - MySQLChat - INFO - 加载表 rpt_hh_domain_cnt_dt 的前 3 条数据成功。
+2024-11-22 11:30:58,239 - MySQLChat - INFO - 加载表结构: rpt_province_cnt_dt
+2024-11-22 11:30:58,240 - MySQLChat - INFO - 成功加载表 rpt_province_cnt_dt 的结构。
+2024-11-22 11:30:58,241 - MySQLChat - INFO - 加载表 rpt_province_cnt_dt 的前 3 条数据成功。
+2024-11-22 11:30:58,241 - MySQLChat - INFO - 成功加载所有表的 schema 信息和数据预览。
+2024-11-22 11:30:58,241 - MySQLChat - INFO - 数据库连接成功！已加载 schema 信息。
+2024-11-22 11:30:58,241 - MySQLChat - DEBUG - Schema 信息: Table: dim_area
+  - city (varchar(255))
+  - province (varchar(255))
+  - area (varchar(255))
+  Sample Data:
+    - {'city': '东城区', 'province': '北京', 'area': '华北地区'}
+    - {'city': '西城区', 'province': '北京', 'area': '华北地区'}
+    - {'city': '朝阳区', 'province': '北京', 'area': '华北地区'}
+Table: dim_date
+  - date_id (varchar(255))
+  - week_id (varchar(255))
+  - week_day (varchar(255))
+  - day (varchar(255))
+  - month (varchar(255))
+  - quarter (varchar(255))
+  - year (varchar(255))
+  - is_workday (varchar(255))
+  - holiday_id (varchar(255))
+  Sample Data:
+    - {'date_id': '2023-01-01', 'week_id': '1', 'week_day': '7', 'day': '1', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '0', 'holiday_id': '元旦'}
+    - {'date_id': '2023-01-02', 'week_id': '1', 'week_day': '1', 'day': '2', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '0', 'holiday_id': '元旦'}
+    - {'date_id': '2023-01-03', 'week_id': '1', 'week_day': '2', 'day': '3', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '1', 'holiday_id': ''}
+Table: rpt_device_type_domain_cnt_dt
+  - device_type (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'device_type': 'mobile', 'domain': 'www.hupu.com', 'cnt': '15', 'dt': '20230101'}
+    - {'device_type': 'mobile', 'domain': 'www.baihe.com', 'cnt': '18', 'dt': '20230101'}
+    - {'device_type': 'mobile', 'domain': 'www.lottery.gov.cn', 'cnt': '12', 'dt': '20230101'}
+Table: rpt_hh_domain_cnt_dt
+  - hh (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'hh': '05', 'domain': 'www.huya.com', 'cnt': '3', 'dt': '20230101'}
+    - {'hh': '14', 'domain': 'zhaopin.baidu.com', 'cnt': '4', 'dt': '20230101'}
+    - {'hh': '07', 'domain': 'cwiki.apache.org', 'cnt': '6', 'dt': '20230101'}
+Table: rpt_province_cnt_dt
+  - province (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'province': '福建省', 'cnt': '62', 'dt': '20230101'}
+    - {'province': '北京市', 'cnt': '183', 'dt': '20230101'}
+    - {'province': '安徽省', 'cnt': '991', 'dt': '20230101'}
+2024-11-22 13:02:15,522 - MySQLChat - INFO - 欢迎使用 MySQL Chat！
+2024-11-22 13:02:15,523 - MySQLChat - INFO - 加载配置文件: C:\Users\Administrator\Desktop\算法\MySQLChat\app\../config.json
+2024-11-22 13:02:15,530 - MySQLChat - INFO - 数据库连接成功！
+2024-11-22 13:02:15,530 - MySQLChat - INFO - 开始加载数据库 schema 信息...
+2024-11-22 13:02:15,531 - MySQLChat - INFO - 发现 5 个表。
+2024-11-22 13:02:15,531 - MySQLChat - INFO - 加载表结构: dim_area
+2024-11-22 13:02:15,532 - MySQLChat - INFO - 成功加载表 dim_area 的结构。
+2024-11-22 13:02:15,533 - MySQLChat - INFO - 加载表 dim_area 的前 3 条数据成功。
+2024-11-22 13:02:15,533 - MySQLChat - INFO - 加载表结构: dim_date
+2024-11-22 13:02:15,534 - MySQLChat - INFO - 成功加载表 dim_date 的结构。
+2024-11-22 13:02:15,535 - MySQLChat - INFO - 加载表 dim_date 的前 3 条数据成功。
+2024-11-22 13:02:15,535 - MySQLChat - INFO - 加载表结构: rpt_device_type_domain_cnt_dt
+2024-11-22 13:02:15,536 - MySQLChat - INFO - 成功加载表 rpt_device_type_domain_cnt_dt 的结构。
+2024-11-22 13:02:15,536 - MySQLChat - INFO - 加载表 rpt_device_type_domain_cnt_dt 的前 3 条数据成功。
+2024-11-22 13:02:15,536 - MySQLChat - INFO - 加载表结构: rpt_hh_domain_cnt_dt
+2024-11-22 13:02:15,537 - MySQLChat - INFO - 成功加载表 rpt_hh_domain_cnt_dt 的结构。
+2024-11-22 13:02:15,538 - MySQLChat - INFO - 加载表 rpt_hh_domain_cnt_dt 的前 3 条数据成功。
+2024-11-22 13:02:15,538 - MySQLChat - INFO - 加载表结构: rpt_province_cnt_dt
+2024-11-22 13:02:15,539 - MySQLChat - INFO - 成功加载表 rpt_province_cnt_dt 的结构。
+2024-11-22 13:02:15,540 - MySQLChat - INFO - 加载表 rpt_province_cnt_dt 的前 3 条数据成功。
+2024-11-22 13:02:15,540 - MySQLChat - INFO - 成功加载所有表的 schema 信息和数据预览。
+2024-11-22 13:02:15,540 - MySQLChat - INFO - 数据库连接成功！已加载 schema 信息。
+2024-11-22 13:02:15,540 - MySQLChat - DEBUG - Schema 信息: Table: dim_area
+  - city (varchar(255))
+  - province (varchar(255))
+  - area (varchar(255))
+  Sample Data:
+    - {'city': '东城区', 'province': '北京', 'area': '华北地区'}
+    - {'city': '西城区', 'province': '北京', 'area': '华北地区'}
+    - {'city': '朝阳区', 'province': '北京', 'area': '华北地区'}
+Table: dim_date
+  - date_id (varchar(255))
+  - week_id (varchar(255))
+  - week_day (varchar(255))
+  - day (varchar(255))
+  - month (varchar(255))
+  - quarter (varchar(255))
+  - year (varchar(255))
+  - is_workday (varchar(255))
+  - holiday_id (varchar(255))
+  Sample Data:
+    - {'date_id': '2023-01-01', 'week_id': '1', 'week_day': '7', 'day': '1', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '0', 'holiday_id': '元旦'}
+    - {'date_id': '2023-01-02', 'week_id': '1', 'week_day': '1', 'day': '2', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '0', 'holiday_id': '元旦'}
+    - {'date_id': '2023-01-03', 'week_id': '1', 'week_day': '2', 'day': '3', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '1', 'holiday_id': ''}
+Table: rpt_device_type_domain_cnt_dt
+  - device_type (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'device_type': 'mobile', 'domain': 'www.hupu.com', 'cnt': '15', 'dt': '20230101'}
+    - {'device_type': 'mobile', 'domain': 'www.baihe.com', 'cnt': '18', 'dt': '20230101'}
+    - {'device_type': 'mobile', 'domain': 'www.lottery.gov.cn', 'cnt': '12', 'dt': '20230101'}
+Table: rpt_hh_domain_cnt_dt
+  - hh (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'hh': '05', 'domain': 'www.huya.com', 'cnt': '3', 'dt': '20230101'}
+    - {'hh': '14', 'domain': 'zhaopin.baidu.com', 'cnt': '4', 'dt': '20230101'}
+    - {'hh': '07', 'domain': 'cwiki.apache.org', 'cnt': '6', 'dt': '20230101'}
+Table: rpt_province_cnt_dt
+  - province (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'province': '福建省', 'cnt': '62', 'dt': '20230101'}
+    - {'province': '北京市', 'cnt': '183', 'dt': '20230101'}
+    - {'province': '安徽省', 'cnt': '991', 'dt': '20230101'}
+2024-11-22 13:03:48,843 - MySQLChat - INFO - 用户输入的查询描述: 查询域名为www.huya.com在不同设备的cnt，以及对应的日期是哪个节日
+2024-11-22 13:03:48,843 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 查询域名为www.huya.com在不同设备的cnt，以及对应的日期是哪个节日
+2024-11-22 13:03:48,844 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 13:03:52,945 - MySQLChat - INFO - 生成的 SQL 查询: SELECT d.holiday_id, r.device_type, r.cnt 
+FROM rpt_hh_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:03:52,945 - MySQLChat - INFO - 生成的 SQL 查询: SELECT d.holiday_id, r.device_type, r.cnt 
+FROM rpt_hh_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:03:52,945 - MySQLChat - INFO - 执行 SQL 查询: SELECT d.holiday_id, r.device_type, r.cnt 
+FROM rpt_hh_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:03:52,946 - MySQLChat - ERROR - 查询执行失败: (1054, "Unknown column 'r.device_type' in 'field list'")
+2024-11-22 13:03:52,946 - MySQLChat - DEBUG - 查询结果: Query execution error: (1054, "Unknown column 'r.device_type' in 'field list'")
+2024-11-22 13:05:19,039 - MySQLChat - INFO - 用户输入的查询描述: 查询域名为www.huya.com在不同设备的cnt，以及对应的日期是哪个节日  注意选择的表
+2024-11-22 13:05:19,039 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 查询域名为www.huya.com在不同设备的cnt，以及对应的日期是哪个节日  注意选择的表
+2024-11-22 13:05:19,040 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 13:05:24,112 - MySQLChat - INFO - 生成的 SQL 查询: SELECT d.holiday_id, r.device_type, r.cnt 
+FROM rpt_hh_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:05:24,112 - MySQLChat - INFO - 生成的 SQL 查询: SELECT d.holiday_id, r.device_type, r.cnt 
+FROM rpt_hh_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:05:24,112 - MySQLChat - INFO - 执行 SQL 查询: SELECT d.holiday_id, r.device_type, r.cnt 
+FROM rpt_hh_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:05:24,113 - MySQLChat - ERROR - 查询执行失败: (1054, "Unknown column 'r.device_type' in 'field list'")
+2024-11-22 13:05:24,113 - MySQLChat - DEBUG - 查询结果: Query execution error: (1054, "Unknown column 'r.device_type' in 'field list'")
+2024-11-22 13:05:36,376 - MySQLChat - WARNING - 无效的操作编号，请重新输入。
+2024-11-22 13:05:36,376 - MySQLChat - WARNING - 无效的操作编号，请重新输入。
+2024-11-22 13:05:54,343 - MySQLChat - INFO - 用户输入的查询描述: 查询域名为www.huya.com在不同设备的cnt，以及对应的日期是哪个节日 使用rpt_device_type_domain_cnt_dt
+2024-11-22 13:05:54,344 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 查询域名为www.huya.com在不同设备的cnt，以及对应的日期是哪个节日 使用rpt_device_type_domain_cnt_dt
+2024-11-22 13:05:54,344 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 13:05:56,388 - MySQLChat - INFO - 生成的 SQL 查询: SELECT d.holiday_id, r.cnt 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:05:56,388 - MySQLChat - INFO - 生成的 SQL 查询: SELECT d.holiday_id, r.cnt 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:05:56,388 - MySQLChat - INFO - 执行 SQL 查询: SELECT d.holiday_id, r.cnt 
+FROM rpt_device_type_domain_cnt_dt r 
+JOIN dim_date d ON r.dt = d.date_id 
+WHERE r.domain = 'www.huya.com';
+2024-11-22 13:05:56,389 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 13:05:56,389 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 13:06:20,085 - MySQLChat - INFO - 用户输入的查询描述: SELECT d.holiday_id, r.cnt 
+2024-11-22 13:06:20,085 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: SELECT d.holiday_id, r.cnt 
+2024-11-22 13:06:20,085 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 13:06:22,673 - MySQLChat - INFO - 生成的 SQL 查询: SELECT d.holiday_id, r.cnt FROM dim_date d JOIN rpt_province_cnt_dt r ON d.date_id = r.dt;
+2024-11-22 13:06:22,673 - MySQLChat - INFO - 生成的 SQL 查询: SELECT d.holiday_id, r.cnt FROM dim_date d JOIN rpt_province_cnt_dt r ON d.date_id = r.dt;
+2024-11-22 13:06:22,673 - MySQLChat - INFO - 执行 SQL 查询: SELECT d.holiday_id, r.cnt FROM dim_date d JOIN rpt_province_cnt_dt r ON d.date_id = r.dt;
+2024-11-22 13:06:22,674 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 13:06:22,674 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 13:06:22,675 - MySQLChat - WARNING - 无效的操作编号，请重新输入。
+2024-11-22 13:06:22,675 - MySQLChat - WARNING - 无效的操作编号，请重新输入。
+2024-11-22 13:06:22,675 - MySQLChat - WARNING - 无效的操作编号，请重新输入。
+2024-11-22 13:06:38,075 - MySQLChat - INFO - 用户输入的查询描述: 查询20230101对应的日期
+2024-11-22 13:06:38,075 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 查询20230101对应的日期
+2024-11-22 13:06:38,076 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 13:06:44,162 - MySQLChat - INFO - 生成的 SQL 查询: SELECT * FROM dim_date WHERE date_id = '20230101';
+2024-11-22 13:06:44,162 - MySQLChat - INFO - 生成的 SQL 查询: SELECT * FROM dim_date WHERE date_id = '20230101';
+2024-11-22 13:06:44,162 - MySQLChat - INFO - 执行 SQL 查询: SELECT * FROM dim_date WHERE date_id = '20230101';
+2024-11-22 13:06:44,163 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 13:06:44,163 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 13:07:39,955 - MySQLChat - INFO - 用户输入的查询描述: 查询20230101对应的节日，注意：使用的表 日期格式是否和用户输入的符合
+2024-11-22 13:07:39,955 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 查询20230101对应的节日，注意：使用的表 日期格式是否和用户输入的符合
+2024-11-22 13:07:39,956 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 13:07:41,883 - MySQLChat - INFO - 生成的 SQL 查询: SELECT holiday_id AS holiday FROM dim_date WHERE date_id = '20230101';
+2024-11-22 13:07:41,883 - MySQLChat - INFO - 生成的 SQL 查询: SELECT holiday_id AS holiday FROM dim_date WHERE date_id = '20230101';
+2024-11-22 13:07:41,883 - MySQLChat - INFO - 执行 SQL 查询: SELECT holiday_id AS holiday FROM dim_date WHERE date_id = '20230101';
+2024-11-22 13:07:41,885 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 13:07:41,885 - MySQLChat - DEBUG - 查询结果: ()
+2024-11-22 15:25:53,013 - MySQLChat - INFO - 欢迎使用 MySQL Chat！
+2024-11-22 15:25:53,014 - MySQLChat - INFO - 加载配置文件: C:\Users\Administrator\Desktop\算法\MySQLChat\app\../config.json
+2024-11-22 15:25:53,031 - MySQLChat - INFO - 数据库连接成功！
+2024-11-22 15:25:53,031 - MySQLChat - INFO - 开始加载数据库 schema 信息...
+2024-11-22 15:25:53,032 - MySQLChat - INFO - 发现 5 个表。
+2024-11-22 15:25:53,032 - MySQLChat - INFO - 加载表结构: dim_area
+2024-11-22 15:25:53,033 - MySQLChat - INFO - 成功加载表 dim_area 的结构。
+2024-11-22 15:25:53,034 - MySQLChat - INFO - 加载表 dim_area 的前 3 条数据成功。
+2024-11-22 15:25:53,034 - MySQLChat - INFO - 加载表结构: dim_date
+2024-11-22 15:25:53,035 - MySQLChat - INFO - 成功加载表 dim_date 的结构。
+2024-11-22 15:25:53,036 - MySQLChat - INFO - 加载表 dim_date 的前 3 条数据成功。
+2024-11-22 15:25:53,036 - MySQLChat - INFO - 加载表结构: rpt_device_type_domain_cnt_dt
+2024-11-22 15:25:53,037 - MySQLChat - INFO - 成功加载表 rpt_device_type_domain_cnt_dt 的结构。
+2024-11-22 15:25:53,037 - MySQLChat - INFO - 加载表 rpt_device_type_domain_cnt_dt 的前 3 条数据成功。
+2024-11-22 15:25:53,038 - MySQLChat - INFO - 加载表结构: rpt_hh_domain_cnt_dt
+2024-11-22 15:25:53,039 - MySQLChat - INFO - 成功加载表 rpt_hh_domain_cnt_dt 的结构。
+2024-11-22 15:25:53,039 - MySQLChat - INFO - 加载表 rpt_hh_domain_cnt_dt 的前 3 条数据成功。
+2024-11-22 15:25:53,039 - MySQLChat - INFO - 加载表结构: rpt_province_cnt_dt
+2024-11-22 15:25:53,040 - MySQLChat - INFO - 成功加载表 rpt_province_cnt_dt 的结构。
+2024-11-22 15:25:53,041 - MySQLChat - INFO - 加载表 rpt_province_cnt_dt 的前 3 条数据成功。
+2024-11-22 15:25:53,041 - MySQLChat - INFO - 成功加载所有表的 schema 信息和数据预览。
+2024-11-22 15:25:53,041 - MySQLChat - INFO - 数据库连接成功！已加载 schema 信息。
+2024-11-22 15:25:53,041 - MySQLChat - DEBUG - Schema 信息: Table: dim_area
+  - city (varchar(255))
+  - province (varchar(255))
+  - area (varchar(255))
+  Sample Data:
+    - {'city': '东城区', 'province': '北京', 'area': '华北地区'}
+    - {'city': '西城区', 'province': '北京', 'area': '华北地区'}
+    - {'city': '朝阳区', 'province': '北京', 'area': '华北地区'}
+Table: dim_date
+  - date_id (varchar(255))
+  - week_id (varchar(255))
+  - week_day (varchar(255))
+  - day (varchar(255))
+  - month (varchar(255))
+  - quarter (varchar(255))
+  - year (varchar(255))
+  - is_workday (varchar(255))
+  - holiday_id (varchar(255))
+  Sample Data:
+    - {'date_id': '2023-01-01', 'week_id': '1', 'week_day': '7', 'day': '1', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '0', 'holiday_id': '元旦'}
+    - {'date_id': '2023-01-02', 'week_id': '1', 'week_day': '1', 'day': '2', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '0', 'holiday_id': '元旦'}
+    - {'date_id': '2023-01-03', 'week_id': '1', 'week_day': '2', 'day': '3', 'month': '1', 'quarter': '1', 'year': '2023', 'is_workday': '1', 'holiday_id': ''}
+Table: rpt_device_type_domain_cnt_dt
+  - device_type (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'device_type': 'mobile', 'domain': 'www.hupu.com', 'cnt': '15', 'dt': '20230101'}
+    - {'device_type': 'mobile', 'domain': 'www.baihe.com', 'cnt': '18', 'dt': '20230101'}
+    - {'device_type': 'mobile', 'domain': 'www.lottery.gov.cn', 'cnt': '12', 'dt': '20230101'}
+Table: rpt_hh_domain_cnt_dt
+  - hh (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'hh': '05', 'domain': 'www.huya.com', 'cnt': '3', 'dt': '20230101'}
+    - {'hh': '14', 'domain': 'zhaopin.baidu.com', 'cnt': '4', 'dt': '20230101'}
+    - {'hh': '07', 'domain': 'cwiki.apache.org', 'cnt': '6', 'dt': '20230101'}
+Table: rpt_province_cnt_dt
+  - province (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+  Sample Data:
+    - {'province': '福建省', 'cnt': '62', 'dt': '20230101'}
+    - {'province': '北京市', 'cnt': '183', 'dt': '20230101'}
+    - {'province': '安徽省', 'cnt': '991', 'dt': '20230101'}
+2024-11-22 15:26:14,936 - MySQLChat - INFO - 用户输入的查询描述: 每个地区的省份数量
+2024-11-22 15:26:14,936 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 每个地区的省份数量
+2024-11-22 15:26:14,937 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 15:26:17,665 - MySQLChat - INFO - 生成的 SQL 查询: SELECT area, COUNT(DISTINCT province) AS province_count FROM dim_area GROUP BY area;
+2024-11-22 15:26:17,665 - MySQLChat - INFO - 生成的 SQL 查询: SELECT area, COUNT(DISTINCT province) AS province_count FROM dim_area GROUP BY area;
+2024-11-22 15:26:17,665 - MySQLChat - INFO - 执行 SQL 查询: SELECT area, COUNT(DISTINCT province) AS province_count FROM dim_area GROUP BY area;
+2024-11-22 15:26:17,669 - MySQLChat - DEBUG - 查询结果: [{'area': '东北地区', 'province_count': 3}, {'area': '华东地区', 'province_count': 8}, {'area': '华中地区', 'province_count': 3}, {'area': '华北地区', 'province_count': 5}, {'area': '华南地区', 'province_count': 5}, {'area': '西北地区', 'province_count': 5}, {'area': '西南地区', 'province_count': 5}]
+2024-11-22 15:26:17,669 - MySQLChat - DEBUG - 查询结果: [{'area': '东北地区', 'province_count': 3}, {'area': '华东地区', 'province_count': 8}, {'area': '华中地区', 'province_count': 3}, {'area': '华北地区', 'province_count': 5}, {'area': '华南地区', 'province_count': 5}, {'area': '西北地区', 'province_count': 5}, {'area': '西南地区', 'province_count': 5}]
