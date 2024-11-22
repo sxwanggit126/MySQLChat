@@ -1,0 +1,4 @@
+{
+  "mysql_url": "mysql+pymysql://root:123456@192.168.41.31:3306/comm",
+  "prompt_path": "prompts/sql_template.txt"
+}

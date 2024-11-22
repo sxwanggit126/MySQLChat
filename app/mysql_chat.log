@@ -1,0 +1,42 @@
+2024-11-22 10:10:00,318 - MySQLChat - INFO - 欢迎使用 MySQL Chat！
+2024-11-22 10:10:00,320 - MySQLChat - INFO - 加载配置文件: C:\Users\Administrator\Desktop\算法\MySQLChat\app\../config.json
+2024-11-22 10:10:00,325 - MySQLChat - INFO - 数据库连接成功！
+2024-11-22 10:10:00,330 - MySQLChat - INFO - 成功加载 schema 信息：['Table: dim_area', '  - city (varchar(255))', '  - province (varchar(255))', '  - area (varchar(255))', 'Table: dim_date', '  - date_id (varchar(255))', '  - week_id (varchar(255))', '  - week_day (varchar(255))', '  - day (varchar(255))', '  - month (varchar(255))', '  - quarter (varchar(255))', '  - year (varchar(255))', '  - is_workday (varchar(255))', '  - holiday_id (varchar(255))', 'Table: rpt_device_type_domain_cnt_dt', '  - device_type (varchar(50))', '  - domain (varchar(50))', '  - cnt (mediumtext)', '  - dt (varchar(20))', 'Table: rpt_hh_domain_cnt_dt', '  - hh (varchar(50))', '  - domain (varchar(50))', '  - cnt (mediumtext)', '  - dt (varchar(20))', 'Table: rpt_province_cnt_dt', '  - province (varchar(50))', '  - cnt (mediumtext)', '  - dt (varchar(20))']
+2024-11-22 10:10:00,330 - MySQLChat - INFO - 数据库连接成功！已加载 schema 信息。
+2024-11-22 10:10:00,330 - MySQLChat - DEBUG - Schema 信息: Table: dim_area
+  - city (varchar(255))
+  - province (varchar(255))
+  - area (varchar(255))
+Table: dim_date
+  - date_id (varchar(255))
+  - week_id (varchar(255))
+  - week_day (varchar(255))
+  - day (varchar(255))
+  - month (varchar(255))
+  - quarter (varchar(255))
+  - year (varchar(255))
+  - is_workday (varchar(255))
+  - holiday_id (varchar(255))
+Table: rpt_device_type_domain_cnt_dt
+  - device_type (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+Table: rpt_hh_domain_cnt_dt
+  - hh (varchar(50))
+  - domain (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+Table: rpt_province_cnt_dt
+  - province (varchar(50))
+  - cnt (mediumtext)
+  - dt (varchar(20))
+2024-11-22 10:11:52,003 - MySQLChat - INFO - 用户输入的查询描述: 查询域名为www.huya.com在每个设备的cnt
+2024-11-22 10:11:52,003 - MySQLChat - INFO - 生成 SQL 查询: 用户输入: 查询域名为www.huya.com在每个设备的cnt
+2024-11-22 10:11:52,003 - MySQLChat - INFO - 加载了 prompt 模板文件: prompts/sql_template.txt
+2024-11-22 10:11:54,649 - MySQLChat - INFO - 生成的 SQL 查询: SELECT device_type, cnt AS count FROM rpt_device_type_domain_cnt_dt WHERE domain = 'www.huya.com';
+2024-11-22 10:11:54,649 - MySQLChat - INFO - 生成的 SQL 查询: SELECT device_type, cnt AS count FROM rpt_device_type_domain_cnt_dt WHERE domain = 'www.huya.com';
+2024-11-22 10:11:54,649 - MySQLChat - INFO - 执行 SQL 查询: SELECT device_type, cnt AS count FROM rpt_device_type_domain_cnt_dt WHERE domain = 'www.huya.com';
+2024-11-22 10:11:54,650 - MySQLChat - DEBUG - 查询结果: [{'device_type': 'mobile', 'count': '17'}, {'device_type': 'pc', 'count': '37'}]
+2024-11-22 10:11:54,650 - MySQLChat - DEBUG - 查询结果: [{'device_type': 'mobile', 'count': '17'}, {'device_type': 'pc', 'count': '37'}]
+2024-11-22 10:13:47,668 - MySQLChat - INFO - 感谢使用 MySQL Chat，再见！
