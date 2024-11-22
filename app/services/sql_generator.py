@@ -8,7 +8,7 @@ def load_prompt_template(filepath: str) -> str:
     从文件加载 prompt 模板。
     """
     try:
-        with open(filepath, "r") as f:
+        with open(filepath, 'r', encoding='utf-8') as f:
             logger.info(f"加载了 prompt 模板文件: {filepath}")
             return f.read()
     except FileNotFoundError:
@@ -31,7 +31,7 @@ def generate_sql(query: str, schema_info: str, prompt_path: str) -> str:
 
     # 用 schema 和用户的 query 替换占位符
     formatted_prompt = prompt_template.replace("{schema_placeholder}", schema_info).replace("{query_placeholder}", query)
-
+    logger.info(f"生成prompt：{formatted_prompt}")
     try:
         # 调用 OpenAI API
         response = client.chat.completions.create(
@@ -39,6 +39,7 @@ def generate_sql(query: str, schema_info: str, prompt_path: str) -> str:
             messages=[{"role": "system", "content": formatted_prompt}],
             temperature=0.0
         )
+
         sql_message = response.choices[0].message
         sql = sql_message.content.strip()  # 获取 content 属性并去掉多余空格
         logger.info(f"生成的 SQL 查询: {sql}")

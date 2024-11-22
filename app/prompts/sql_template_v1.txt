@@ -17,7 +17,7 @@ Rules:
    - Consider values such as '20230101' and '2023-01-01' as equivalent for filtering or joining.
    - Ensure all relevant conditions are covered (e.g., multiple table joins based on the schema).
 6. Ensure the SQL is executable directly.
-DO NOT make any DML statements (INSERT, UPDATE, DELETE, DROP etc.) to the database.
+
 Schema and Sample Data:
 {schema_placeholder}
 

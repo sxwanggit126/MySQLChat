@@ -135,7 +135,8 @@ def load_schema_with_data_preview(connection) -> str:
                         schema_with_preview.append("  Sample Data:")
                         for row in rows:
                             schema_with_preview.append(f"    - {row}")
-                        logger.info(f"加载表 {table_name} 的前 3 条数据成功。")
+                            logger.info(f"表 {table_name} 的数据: {row}")  # 在日志中记录具体行数据
+                        logger.info(f"成功加载表 {table_name} 的前 3 条数据。")
                     else:
                         schema_with_preview.append("  No data available in this table.")
                         logger.info(f"表 {table_name} 中没有数据。")
